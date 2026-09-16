@@ -1,21 +1,16 @@
-const form = document.getElementById("appointmentForm");
-const message = document.getElementById("message");
+const express = require("express");
+const path = require("path");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+const app = express();
+const PORT = process.env.PORT || 10000;
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const department = document.getElementById("department").value;
-  const date = document.getElementById("date").value;
+// Serve files from the root directory
+app.use(express.static(__dirname));
 
-  if (!name || !phone || !department || !date) {
-    message.textContent = "Please fill in all appointment details.";
-    return;
-  }
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-  message.textContent =
-    "Thank you, " + name + ". Your appointment request has been received.";
-
-  form.reset();
+app.listen(PORT, () => {
+  console.log(`Agasthya Hospital website running on port ${PORT}`);
 });

@@ -1,0 +1,12 @@
+{
+  "name": "agasthya-hospital",
+  "version": "1.0.0",
+  "description": "Agasthya Hospital Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
